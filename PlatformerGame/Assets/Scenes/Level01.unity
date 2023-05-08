@@ -508,4 +508,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpHeight: 0
+  jumpHeight: 5
