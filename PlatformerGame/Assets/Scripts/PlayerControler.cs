@@ -32,9 +32,13 @@ public class PlayerControler : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            rb.velocity = Vector3.up * jumpHeight;
-            Debug.Log("UpArrowPressed");
+            Jump();
         }
 
+    }
+
+    public void Jump()
+    {
+        rb.velocity = Vector3.up * jumpHeight;
     }
 }
