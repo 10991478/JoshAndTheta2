@@ -292,7 +292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRange: 3
   yRange: 2
-  cameraSpeed: 5
+  cameraSpeed: 0.025
+  offset: {x: 0, y: 0, z: -10}
 --- !u!54 &519420034
 Rigidbody:
   m_ObjectHideFlags: 0
