@@ -8,10 +8,12 @@ public class MoveSideToSide : MonoBehaviour
     public float speed = 3f;
     private float timeOfLastFlip;
     public float flipFrequency = 3f;
+    private Rigidbody rb;
 
     void Start()
     {
         timeOfLastFlip = Time.time;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -21,6 +23,6 @@ public class MoveSideToSide : MonoBehaviour
             currentDirection *= -1;
             timeOfLastFlip = Time.time;
         }
-        transform.Translate(Vector3.right * currentDirection * speed * Time.deltaTime);
+        rb.velocity = new Vector2(speed * currentDirection, rb.velocity.y);
     }
 }
