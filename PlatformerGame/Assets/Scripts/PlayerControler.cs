@@ -23,16 +23,20 @@ public class PlayerControler : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput != 0)
         {
-            rb.velocity = Vector3.right * horizontalInput * speed;
-            Debug.Log($"Horizontal movement:{horizontalInput} velocity:{rb.velocity} speed: {speed} time: {Time.deltaTime}");
+            rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
         }
 
 
         
         if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = Vector3.up * jumpHeight;
+            Jump(jumpHeight);
         }
 
+    }
+
+    public void Jump(float height)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, height);
     }
 }
