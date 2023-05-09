@@ -45,7 +45,7 @@ public class PlayerControler : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, -1);
+            rb.velocity = new Vector2(rb.velocity.x, -3);
             
         }
         if (rb.velocity.y < 0 || rb.velocity.y > 0)
