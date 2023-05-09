@@ -10,6 +10,7 @@ public class PlayerControler : MonoBehaviour
     public float jumpHeight;
     public bool slow;
     public bool grounded = true;
+    public bool doubleJump = true;
     
 
     // Start is called before the first frame update
@@ -34,9 +35,13 @@ public class PlayerControler : MonoBehaviour
 
 
         
-        if (Input.GetButtonDown("Jump")&grounded == true)
+        if (Input.GetButtonDown("Jump")&& (grounded == true || doubleJump == true))
         {
             Jump(jumpHeight);
+            if (grounded == false)
+            {
+                doubleJump = false;
+            }
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
@@ -50,6 +55,7 @@ public class PlayerControler : MonoBehaviour
         else
             {
                 grounded = true;
+                doubleJump = true;
             }
 
 
