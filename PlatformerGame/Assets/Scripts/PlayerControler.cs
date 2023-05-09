@@ -21,10 +21,9 @@ public class PlayerControler : MonoBehaviour
     {
         
         horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = Vector3.right * horizontalInput * speed;
-
         if (horizontalInput != 0)
         {
+            rb.velocity = Vector3.right * horizontalInput * speed;
             Debug.Log($"Horizontal movement:{horizontalInput} velocity:{rb.velocity} speed: {speed} time: {Time.deltaTime}");
         }
 
