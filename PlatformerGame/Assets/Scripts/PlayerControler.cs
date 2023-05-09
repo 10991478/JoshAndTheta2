@@ -19,8 +19,17 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
+        rb.velocity = Vector3.right * horizontalInput * speed;
+
+        if (horizontalInput != 0)
+        {
+            Debug.Log($"Horizontal movement:{horizontalInput} velocity:{rb.velocity} speed: {speed} time: {Time.deltaTime}");
+        }
+
+
+        
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             rb.velocity = Vector3.up * jumpHeight;
