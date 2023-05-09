@@ -5,24 +5,17 @@ using UnityEngine.Events;
 
 public class RunIntoEnemy : MonoBehaviour
 {
-    public UnityEvent collisionEvent, jumpOnEnemyEvent;
-    private ID otherID;
+    public UnityEvent collisionEvent;
+    private ID enemyID;
     public ID enemy;
-    public ID enemyTop;
 
     void OnCollisionEnter(Collision other)
     {
-        otherID = other.gameObject.GetComponent<IDContainer>().id;
-        if (otherID == enemy)
+        enemyID = other.gameObject.GetComponent<IDContainer>().id;
+        if (enemyID == enemy)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             collisionEvent.Invoke();
-        }
-        else if (otherID == enemyTop)
-        {
-            Destroy(other.gameObject);
-            Debug.Log("Jumped On Enemy");
-            jumpOnEnemyEvent.Invoke();
         }
     }
 }
