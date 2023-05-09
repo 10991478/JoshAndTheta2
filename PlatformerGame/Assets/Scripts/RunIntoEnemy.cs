@@ -5,22 +5,18 @@ using UnityEngine.Events;
 
 public class RunIntoEnemy : MonoBehaviour
 {
-    public UnityEvent collisionEvent, jumpOnEnemyEvent;
-    private ID enemyID;
-    public ID enemy, enemyTop;
+    public ID enemy;
 
-    void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
-        enemyID = other.gameObject.GetComponent<IDContainer>().id;
-        if (enemyID == enemy)
-        {
-            gameObject.SetActive(false);
-            collisionEvent.Invoke();
-        }
-        else if (enemyID == enemyTop)
-        {
-            Destroy(other.gameObject);
-            jumpOnEnemyEvent.Invoke();
-        }
+        if (other.gameObject.GetComponent<IDContainer>().id == enemy) Die();
+    }
+    public void KillEnemy(Collision enemy)
+    {
+        Destroy(enemy.gameObject);
+    }
+    public void Die()
+    {
+        gameObject.SetActive(false);
     }
 }
