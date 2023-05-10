@@ -8,12 +8,12 @@ public class MoveSideToSide : MonoBehaviour
     public float speed = 3f;
     private float timeOfLastFlip;
     public float flipFrequency = 3f;
-    private Rigidbody rb;
+    private Rigidbody2D rb;
 
     void Start()
     {
         timeOfLastFlip = Time.time;
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()

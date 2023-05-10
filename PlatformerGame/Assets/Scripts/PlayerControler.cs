@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     private float horizontalInput;
     public float speed = 5f;
     public float jumpHeight, jumpSensitivity;
@@ -14,7 +14,7 @@ public class PlayerControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

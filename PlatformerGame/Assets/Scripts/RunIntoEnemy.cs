@@ -7,15 +7,15 @@ public class RunIntoEnemy : MonoBehaviour
 {
     public ID enemy;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.GetComponent<IDContainer>().id == enemy) Die();
     }
-    public void KillEnemy(Collider enemy)
+    public void KillEnemy(Collider2D enemy)
     {
         Destroy(enemy.gameObject);
     }
-    public void KillEnemy(Collision enemy)
+    public void KillEnemy(Collision2D enemy)
     {
         Destroy(enemy.gameObject);
     }
