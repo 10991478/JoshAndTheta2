@@ -11,6 +11,10 @@ public class RunIntoEnemy : MonoBehaviour
     {
         if (other.gameObject.GetComponent<IDContainer>().id == enemy) Die();
     }
+    public void KillEnemy(Collider enemy)
+    {
+        Destroy(enemy.gameObject);
+    }
     public void KillEnemy(Collision enemy)
     {
         Destroy(enemy.gameObject);
