@@ -7,10 +7,8 @@ public class PlayerControler : MonoBehaviour
     private Rigidbody rb;
     private float horizontalInput;
     public float speed = 5f;
-    public float jumpHeight;
-    public bool slow;
-    public bool grounded = true;
-    public bool doubleJump = true;
+    public float jumpHeight, jumpSensitivity;
+    private bool grounded, doubleJump = true;
     
 
     // Start is called before the first frame update
@@ -22,19 +20,19 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+//Movement controls 
         horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput != 0)
         {
             rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow) && Input.GetKeyUp(KeyCode.RightArrow))
+        else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
 
-        
+//Jump controls
         if (Input.GetButtonDown("Jump")&& (grounded == true || doubleJump == true))
         {
             Jump(jumpHeight);
@@ -45,8 +43,7 @@ public class PlayerControler : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, -3);
-            
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Lerp(rb.velocity.y, 0, jumpSensitivity));
         }
         if (rb.velocity.y < 0 || rb.velocity.y > 0)
             {

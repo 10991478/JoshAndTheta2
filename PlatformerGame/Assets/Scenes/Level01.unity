@@ -203,6 +203,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1554467098643146529, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554467098643146529, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.025
+      objectReference: {fileID: 0}
     - target: {fileID: 1554467098643146540, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -246,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 1554467098643146540, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554467098643146541, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: jumpSensitivity
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6284433052020952782, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
       propertyPath: m_Size.y
