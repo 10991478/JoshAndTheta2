@@ -47,6 +47,7 @@ public class PlayerControler : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Lerp(rb.velocity.y, 0, jumpSensitivity));
         }
+        if (!doubleJump && IsGrounded()) doubleJump = true;
     }
 
     public void Jump(float height)
