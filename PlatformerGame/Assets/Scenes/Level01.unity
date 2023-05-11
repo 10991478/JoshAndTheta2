@@ -431,8 +431,7 @@ GameObject:
   - component: {fileID: 1920618910}
   - component: {fileID: 1920618909}
   - component: {fileID: 1920618914}
-  - component: {fileID: 1920618915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,8 +588,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1144109757
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2057,22 +2056,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: ea18df81f81e57e409312d4dfad5b684, type: 2}
---- !u!114 &1920618915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920618907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850165ddd47ef6f45838f65ddfe487de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerBottom: {fileID: 11400000, guid: 33a34b6833433144ba84d7cf1038d3bd, type: 2}
-  playerGroundedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &8293554835799488291
 PrefabInstance:
   m_ObjectHideFlags: 0

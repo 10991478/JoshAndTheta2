@@ -5,22 +5,26 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float horizontalInput, lastFrameGrounded;
+    private Collider2D coll;
+    [SerializeField] private LayerMask jumpableGround;
+    private float horizontalInput;
     public float speed = 5f;
-    public float jumpHeight, jumpSensitivity, coyoteFrames;
-    private bool grounded, doubleJump = true;
+    public float jumpHeight, jumpSensitivity;
+    private bool doubleJump = true;
+    private int buffer = 0;
     
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        lastFrameGrounded = Time.frameCount;
+        coll = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (buffer > 0) buffer--;
 //Movement controls 
         horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput != 0)
@@ -34,26 +38,14 @@ public class PlayerControler : MonoBehaviour
 
 
 //Jump controls
-        if (Input.GetButtonDown("Jump")&& (grounded == true || doubleJump == true))
+        if (Input.GetButtonDown("Jump")&& (IsGrounded() || doubleJump == true))
         {
             Jump(jumpHeight);
-            if (doubleJump && !grounded) doubleJump = false;
-            if (grounded) Debug.Log("Using grounded jump");
-            else Debug.Log("Using double jump");
+            if (doubleJump && !IsGrounded()) doubleJump = false;
         }
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Lerp(rb.velocity.y, 0, jumpSensitivity));
-        }
-        if (rb.velocity.y != 0 && grounded == true && Time.frameCount - lastFrameGrounded >= coyoteFrames)
-        {
-            grounded = false;
-            Debug.Log("Set grounded to false");
-        }
-        if (rb.velocity.y == 0 && grounded)
-        {
-            Debug.Log("Updated frames");
-            lastFrameGrounded = Time.frameCount;
         }
     }
 
@@ -61,12 +53,11 @@ public class PlayerControler : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, height);
     }
-
-    public void BecomeGrounded()
+    
+    private bool IsGrounded()
     {
-        Debug.Log("BecomeGrounded works :P");
-        grounded = true;
-        doubleJump = true;
-        lastFrameGrounded = Time.frameCount;
+        bool isGrounded = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        if (isGrounded) doubleJump = true;
+        return isGrounded;
     }
 }

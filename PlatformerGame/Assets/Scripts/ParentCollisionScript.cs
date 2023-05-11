@@ -30,9 +30,4 @@ public class ParentCollisionScript : MonoBehaviour
             bounceCollisionEvent.Invoke();
         }
     }
-
-    public void IsGrounded(ChildCollisionScript childScript)
-    {
-        groundedEvent.Invoke();
-    }
 }
