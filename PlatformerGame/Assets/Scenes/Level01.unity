@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 623069110911937180, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: groundedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 623069110911937180, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: groundedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 623069110911937180, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: groundedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1554467098643146528, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -177,6 +189,10 @@ PrefabInstance:
     - target: {fileID: 1554467098643146540, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554467098643146541, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: coyoteFrames
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
@@ -414,6 +430,8 @@ GameObject:
   - component: {fileID: 1920618911}
   - component: {fileID: 1920618910}
   - component: {fileID: 1920618909}
+  - component: {fileID: 1920618914}
+  - component: {fileID: 1920618915}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -2026,6 +2044,35 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1920618914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920618907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4404d5818372534c858a0df5f5eba83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: {fileID: 11400000, guid: ea18df81f81e57e409312d4dfad5b684, type: 2}
+--- !u!114 &1920618915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920618907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850165ddd47ef6f45838f65ddfe487de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBottom: {fileID: 11400000, guid: 33a34b6833433144ba84d7cf1038d3bd, type: 2}
+  playerGroundedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8293554835799488291
 PrefabInstance:
   m_ObjectHideFlags: 0

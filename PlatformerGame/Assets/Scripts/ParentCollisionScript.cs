@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class ParentCollisionScript : MonoBehaviour
 {
-    public UnityEvent bounceCollisionEvent, enemyCollisionEvent;
+    public UnityEvent bounceCollisionEvent, enemyCollisionEvent, groundedEvent;
     public ID enemy, bouncePad;
     public void CollisionDetected(ChildCollisionScript childScript, Collider2D clldr)
     {
@@ -29,5 +29,10 @@ public class ParentCollisionScript : MonoBehaviour
         {
             bounceCollisionEvent.Invoke();
         }
+    }
+
+    public void IsGrounded(ChildCollisionScript childScript)
+    {
+        groundedEvent.Invoke();
     }
 }
