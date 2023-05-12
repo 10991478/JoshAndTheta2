@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1383166390361768043}
   - component: {fileID: -2424309993293141858}
   - component: {fileID: 2512379278336284959}
+  - component: {fileID: -7828901626586337600}
   m_Layer: 8
   m_Name: BouncePad
   m_TagString: Untagged
@@ -137,3 +138,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.0000002, y: 2.0000005}
   m_Direction: 0
+--- !u!114 &-7828901626586337600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268546343427287883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2da0215927577c41bd17532f2e252b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  rigidbodyType: 2
+  color: {r: 0, g: 1, b: 0.14117648, a: 0}
