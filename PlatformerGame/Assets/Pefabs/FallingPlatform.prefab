@@ -178,6 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsUntilFall: 0.5
   secondsUntilRespawn: 2
-  fadeOutRate: 0.08
+  fadeOutRate: 0.02
   fadeInRate: 0.15
   playerBottom: {fileID: 11400000, guid: 33a34b6833433144ba84d7cf1038d3bd, type: 2}

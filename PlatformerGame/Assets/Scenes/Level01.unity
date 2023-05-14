@@ -2748,6 +2748,10 @@ PrefabInstance:
       value: MovingPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 2680895254617798733, guid: f80f2ac5936a2e1498d55c5cf5e247cf, type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680895254617798733, guid: f80f2ac5936a2e1498d55c5cf5e247cf, type: 3}
       propertyPath: waypoints.Array.size
       value: 4
       objectReference: {fileID: 0}
