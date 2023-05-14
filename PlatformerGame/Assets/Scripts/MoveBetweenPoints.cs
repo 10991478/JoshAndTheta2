@@ -7,7 +7,7 @@ public class MoveBetweenPoints : MonoBehaviour
     public float speed = 2f;
     private int direction = -1;
 
-    void FixedUpdate()
+    void Update()
     {
         if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
         {
@@ -27,7 +27,7 @@ public class MoveBetweenPoints : MonoBehaviour
             }
             currentWaypointIndex += direction;
         }
-        var newPos = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, speed);
+        var newPos = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, speed * Time.deltaTime);
         transform.position = newPos;
     }
 }

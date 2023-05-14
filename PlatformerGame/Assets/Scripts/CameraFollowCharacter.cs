@@ -5,29 +5,30 @@ using UnityEngine;
 public class CameraFollowCharacter : MonoBehaviour
 {
     private GameObject target;
-    private Rigidbody rb;
     public float xRange = 15;
     public float yRange = 8;
-    public float cameraSpeed = .01f;
-    private float differencex, differencey;
+    private float distancex, distancey;
     private Vector3 newPosition;
-    public Vector3 offset;
+    public Vector3 rangeOffset;
 
     private void Awake()
     {
         target = GameObject.Find("Player");
-        rb = GetComponent<Rigidbody>();
     }
 
-
-    void FixedUpdate()
+    private void Update()
     {
-        differencex = Mathf.Abs(transform.position.x - target.transform.position.x);
-        differencey = Mathf.Abs(transform.position.y - target.transform.position.y);
-        if (differencex >= xRange || differencey >= yRange)
+        newPosition = transform.position;
+        distancex = transform.position.x - target.transform.position.x - rangeOffset.x;
+        distancey = transform.position.y - target.transform.position.y - rangeOffset.y;
+        if (Mathf.Abs(distancex) >= xRange)
         {
-            newPosition = Vector3.Lerp(transform.position, target.transform.position, cameraSpeed);
-            transform.position = newPosition + offset;
+            newPosition.x += (Mathf.Abs(distancex)/distancex)*xRange - distancex;
         }
+        if (Mathf.Abs(distancey) >= yRange)
+        {
+            newPosition.y += (Mathf.Abs(distancey)/distancey)*yRange - distancey;
+        }
+        transform.position = newPosition;
     }
 }
