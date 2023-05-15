@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -1989106101679178473}
   - component: {fileID: -4154559479898820769}
   - component: {fileID: 5315947885988247967}
+  - component: {fileID: -5921048891045291795}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554467098643146528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.01, y: -2.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 3ecdb2b36b9927e4191377efd413475f, type: 2}
+  player: {fileID: 1554467098643146528}
 --- !u!114 &1554467098643146543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21993a36dfe35a448b1df123c79f45b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1554467098643146528}
   bounceCollisionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -178,8 +181,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  spawnPointCollisionEvent:
+    m_PersistentCalls:
+      m_Calls: []
   enemyKillbox: {fileID: 0}
   bouncePad: {fileID: 11400000, guid: 144aa5458810093439734c07d0143397, type: 2}
+  spawnPoint: {fileID: 0}
 --- !u!50 &-1989106101679178473
 Rigidbody2D:
   serializedVersion: 4
@@ -242,6 +249,23 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   rigidbodyType: 0
   color: {r: 0, g: 0.65882355, b: 1, a: 0}
+--- !u!114 &-5921048891045291795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554467098643146528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dac93116aa72b14ba4ed40c4a1710d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
+  player: {fileID: 1554467098643146528}
+  currentSpawn: 
+  x: 0
+  y: 0
 --- !u!1 &6694391632170698917
 GameObject:
   m_ObjectHideFlags: 0
