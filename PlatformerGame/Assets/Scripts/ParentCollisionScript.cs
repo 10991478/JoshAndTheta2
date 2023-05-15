@@ -26,9 +26,6 @@ public class ParentCollisionScript : MonoBehaviour
         }
         if (clldr.gameObject.GetComponent<IDContainer>().id == spawnPoint)
         {
-            Debug.Log("hey");
-            Debug.Log(clldr.gameObject.name);
-            Debug.Log(clldr.gameObject.GetComponent<Transform>().position.x);
             //need to find a better way to access the script
             respawnPoint = player.gameObject.GetComponent<RespawnPoint>();
             respawnPoint.NewSpawnPoint(clldr);
@@ -48,7 +45,6 @@ public class ParentCollisionScript : MonoBehaviour
         }
         if (clldr.gameObject.GetComponent<IDContainer>().id == spawnPoint)
         {
-            Debug.Log("hey");
             spawnPointCollisionEvent.Invoke();
         }
     }

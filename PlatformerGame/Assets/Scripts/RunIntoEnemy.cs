@@ -33,8 +33,6 @@ public class RunIntoEnemy : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false);
-        Debug.Log(gameObject.name);
-        Debug.Log($"x value {respawnPoint.x}");
         //respawnPoint = Player.gameObject.GetComponent<RespawnPoint>();
         respawnPoint.Respawn();
     }
