@@ -57,7 +57,7 @@ public class PlayerControler : MonoBehaviour
     
     private bool IsGrounded()
     {
-        bool isGrounded = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        bool isGrounded = Physics2D.BoxCast(coll.bounds.center, new Vector2(coll.bounds.size.x*.9f, coll.bounds.size.y*.7f), 0f, Vector2.down, .2f, jumpableGround);
         if (isGrounded) doubleJump = true;
         return isGrounded;
     }
