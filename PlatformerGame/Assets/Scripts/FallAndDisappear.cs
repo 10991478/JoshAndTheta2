@@ -28,29 +28,29 @@ public class FallAndDisappear : MonoBehaviour
         {
             yield return wfsUntilFall;
             rb.bodyType = RigidbodyType2D.Dynamic;
-        }
-        while (color.a >= 0.01f)
-        {
-            yield return wffu;
-            color.a = Mathf.Lerp(color.a, 0, fadeOutRate);
+            thisCollider.enabled = false;
+            while (color.a >= 0.01f)
+            {
+                yield return wffu;
+                color.a = Mathf.Lerp(color.a, 0, fadeOutRate);
+                spriteRenderer.color = color;
+            }
+            color.a = 0;
+            spriteRenderer.color = color;
+            Debug.Log("Done fading");
+            rb.bodyType = RigidbodyType2D.Static;
+            transform.position = startingPosition;
+            yield return wfsUntilRespawn;
+            while (color.a <= 0.99f)
+            {
+                yield return wffu;
+                color.a = Mathf.Lerp(color.a, 1f, fadeInRate);
+                spriteRenderer.color = color;
+            }
+            thisCollider.enabled = true;
+            rb.bodyType = RigidbodyType2D.Static;
+            color.a = 1;
             spriteRenderer.color = color;
         }
-        color.a = 0;
-        spriteRenderer.color = color;
-        Debug.Log("Done fading");
-        rb.bodyType = RigidbodyType2D.Static;
-        thisCollider.enabled = false;
-        transform.position = startingPosition;
-        yield return wfsUntilRespawn;
-        while (color.a <= 0.99f)
-        {
-            yield return wffu;
-            color.a = Mathf.Lerp(color.a, 1f, fadeInRate);
-            spriteRenderer.color = color;
-        }
-        thisCollider.enabled = true;
-        rb.bodyType = RigidbodyType2D.Static;
-        color.a = 1;
-        spriteRenderer.color = color;
     }
 }
