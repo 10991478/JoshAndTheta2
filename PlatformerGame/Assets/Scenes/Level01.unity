@@ -566,6 +566,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1554467098643146541, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1844495286}
+    - target: {fileID: 1554467098643146541, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
       propertyPath: coyoteFrames
       value: 3
       objectReference: {fileID: 0}
@@ -577,6 +581,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1844495286}
+    - target: {fileID: 1554467098643146543, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
+      propertyPath: id
+      value: 
+      objectReference: {fileID: 11400000, guid: feb4a146a6982614c9df387a0f0a96db, type: 2}
     - target: {fileID: 6694391632170698917, guid: ba6ca7c9125ea4647aa92566ee179f2b, type: 3}
       propertyPath: m_Layer
       value: 6

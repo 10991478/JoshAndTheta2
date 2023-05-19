@@ -6,6 +6,8 @@ public class PlayerControler : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Collider2D coll;
+    RespawnPoint respawnPoint;
+    [SerializeField] GameObject player;
     [SerializeField] private LayerMask jumpableGround;
     private float horizontalInput;
     public float speed = 5f;
@@ -19,11 +21,18 @@ public class PlayerControler : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
+        respawnPoint = player.gameObject.GetComponent<RespawnPoint>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("pog");
+            respawnPoint.Respawn();
+        }
         if (buffer > 0) buffer--;
 //Movement controls 
         horizontalInput = Input.GetAxis("Horizontal");
