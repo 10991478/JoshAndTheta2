@@ -6,8 +6,8 @@ public class ParentCollisionScript : MonoBehaviour
 
     RespawnPoint respawnPoint;
     [SerializeField] GameObject player;
-    public UnityEvent bounceCollisionEvent, enemyCollisionEvent, spawnPointCollisionEvent;
-    public ID enemyKillbox, bouncePad, spawnPoint;
+    public UnityEvent bounceCollisionEvent, enemyCollisionEvent, spawnPointCollisionEvent, deathPlaneCollisionEvent;
+    public ID enemyKillbox, bouncePad, spawnPoint, deathPlane;
     void Awake()
     {
         respawnPoint = player.gameObject.GetComponent<RespawnPoint>();
@@ -27,8 +27,17 @@ public class ParentCollisionScript : MonoBehaviour
         if (clldr.gameObject.GetComponent<IDContainer>().id == spawnPoint)
         {
             //need to find a better way to access the script
-            respawnPoint = player.gameObject.GetComponent<RespawnPoint>();
+            //respawnPoint = player.gameObject.GetComponent<RespawnPoint>();
             respawnPoint.NewSpawnPoint(clldr);
+
+        }
+        if (clldr.gameObject.GetComponent<IDContainer>().id == deathPlane)
+        {
+            //need to find a better way to access the script
+            //respawnPoint = player.gameObject.GetComponent<RespawnPoint>();
+            Debug.Log("hitbox detecteds");
+            deathPlaneCollisionEvent.Invoke();
+            //respawnPoint.Respawn();
 
         }
     }
@@ -47,5 +56,6 @@ public class ParentCollisionScript : MonoBehaviour
         {
             spawnPointCollisionEvent.Invoke();
         }
+        
     }
 }

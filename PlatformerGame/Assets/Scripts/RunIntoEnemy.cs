@@ -32,7 +32,7 @@ public class RunIntoEnemy : MonoBehaviour
     }
     public void Die()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         //respawnPoint = Player.gameObject.GetComponent<RespawnPoint>();
         respawnPoint.Respawn();
     }

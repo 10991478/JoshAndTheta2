@@ -184,9 +184,25 @@ MonoBehaviour:
   spawnPointCollisionEvent:
     m_PersistentCalls:
       m_Calls: []
+  deathPlaneCollisionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5921048891045291795}
+        m_TargetAssemblyTypeName: RespawnPoint, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   enemyKillbox: {fileID: 0}
   bouncePad: {fileID: 11400000, guid: 144aa5458810093439734c07d0143397, type: 2}
   spawnPoint: {fileID: 0}
+  deathPlane: {fileID: 0}
 --- !u!50 &-1989106101679178473
 Rigidbody2D:
   serializedVersion: 4

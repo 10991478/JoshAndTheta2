@@ -27,6 +27,7 @@ public class RespawnPoint : MonoBehaviour
     }
     public void Respawn()
     {
+        player.SetActive(false);
         player.transform.position = new Vector2(x,y);
         player.SetActive(true);
     }
