@@ -10,10 +10,6 @@ public class RunIntoEnemy : MonoBehaviour
     RespawnPoint respawnPoint;
     [SerializeField] GameObject player;
 
-    void Awake()
-    {
-        respawnPoint = player.gameObject.GetComponent<RespawnPoint>();
-    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -34,6 +30,6 @@ public class RunIntoEnemy : MonoBehaviour
     {
         //gameObject.SetActive(false);
         //respawnPoint = Player.gameObject.GetComponent<RespawnPoint>();
-        respawnPoint.Respawn();
+        player.GetComponent<RespawnPoint>().Respawn();
     }
 }
