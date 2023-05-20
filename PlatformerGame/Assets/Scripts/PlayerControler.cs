@@ -16,16 +16,14 @@ public class PlayerControler : MonoBehaviour
     public float speed = 5f;
     public float jumpHeight, jumpSensitivity;
     private float wallSlidingSpeed = 2f;
-    //private float wallJumpingDirection;
-    private float wallJumpingTime = 0.2f;
-    private float wallJumpingDuration = 0.4f;
-    private float wallJumpingCounter;
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
-    private bool isWallSliding;
-    private bool doubleJump = true;
+    //private bool isWallSliding;
+    public bool doubleJump = true;
     private bool isWallJumping;
     private int buffer = 0;
+
+    private bool facingRight = true;
     
 
     // Start is called before the first frame update
@@ -39,9 +37,10 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+//reset button "R" for quick testing
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("pog");
+
             respawnPoint.Respawn();
         }
         if (buffer > 0) buffer--;
@@ -55,7 +54,18 @@ public class PlayerControler : MonoBehaviour
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
+//flips character right way
+        if (horizontalInput > 0 && !facingRight)
+        {
+            Flip();
+        }
+        if (horizontalInput < 0 && facingRight)
+        {
+            Flip();
+        }
+
         WallSlide();
+        //WallJump();
 
 
 //Jump controls
@@ -74,6 +84,16 @@ public class PlayerControler : MonoBehaviour
         
     }
 
+//flip character left/right
+    void Flip()
+    {
+        Vector2 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+
+        facingRight = !facingRight;
+    }
+
     public void Jump(float height)
     {
         rb.velocity = new Vector2(rb.velocity.x, height);
@@ -90,7 +110,7 @@ public class PlayerControler : MonoBehaviour
     //method to check if player is touching a wall
     {
         //bool isWalled = Physics2D.OverLapCircle(wallCheck.position);
-        bool isWalled = Physics2D.BoxCast(wallCheck.gameObject.GetComponent<Collider2D>().bounds.center, new Vector2(coll.bounds.size.x*.9f, coll.bounds.size.y*.7f), 0f, Vector2.down, .2f, jumpableGround);
+        bool isWalled = Physics2D.BoxCast(wallCheck.gameObject.GetComponent<Collider2D>().bounds.center, new Vector2(coll.bounds.size.x*.9f, coll.bounds.size.y*.7f), 0f, Vector2.down, .2f, wallLayer);
         //return isWalled;
         return isWalled;
     }
@@ -101,7 +121,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (IsWalled() && !IsGrounded() && horizontalInput != 0f)
         {
-            isWallSliding = true;
+            //isWallSliding = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
             if(IsWalled() && !Input.GetKeyDown(KeyCode.LeftArrow)&& !Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -110,36 +130,10 @@ public class PlayerControler : MonoBehaviour
                 //probably better to 
             doubleJump = true;
 
-            //CancelInvoke(nameof(StopWallJumping));
+
         }
-        else
-        {
-            isWallSliding = false;
-        }
+        
     }
 
-    /*private void WallJump()
-    {
-        if (isWallSliding)
-        {
-            isWallJumping = false;
-            wallJumpingDirection = -transform.localScale.x;
-            wallJumpingCounter = wallJumpingTime;
-        }
-        else
-        {
-            wallJumpingCounter -= Time.deltaTime;
-        }
-        if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
-        {
-            isWallJumping = true;
-            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            wallJumpingCounter = 0f;
-            Invoke(nameof(StopWallJumping), wallJumpingDuration);
-        }
-    }
-    private void StopWallJumping()
-    {
-        isWallJumping = false;
-    }*/
+   
 }
