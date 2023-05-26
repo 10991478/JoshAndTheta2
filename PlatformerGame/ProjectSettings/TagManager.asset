@@ -47,6 +47,9 @@ TagManager:
   - name: Stage
     uniqueID: 1144109757
     locked: 0
+  - name: OnFloorForeground
+    uniqueID: 3758428565
+    locked: 0
   - name: Enemies
     uniqueID: 3092210489
     locked: 0
